@@ -6,14 +6,14 @@ def shift_invert_iteration(A, shift, num_iterations=100, tolerance=1e-6):
     
     for _ in range(num_iterations):
         # Pergeseran Matrix 
-        shifted_matrix = np.dot((np.linalg.inv(A - shift * np.eye(n))), A) #np.linalg.inv(A - shift * np.eye(n)) @ A
+        shifted_matrix = np.dot((np.linalg.inv(A - shift * np.eye(n))), A) 
         
         # Metode QR untuk pergeseran matrix 
         Q, R = np.linalg.qr(shifted_matrix)
         
-        # memperbarui nilai A dan eigenvectorn
-        A = np.dot(R,Q) #R @ Q
-        eigenvectors = np.dot(eigenvectors , Q) #eigenvectors @ Q
+        # memperbarui nilai A dan eigenvector
+        A = np.dot(R,Q) 
+        eigenvectors = np.dot(eigenvectors , Q) 
         
         # Mengecek konvergensi
         off_diagonal = np.sum(np.abs(A - np.diag(np.diag(A))))
