@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="User"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-04-27 07:15:32 PM"/>
+        <attribute name="created" value="VXNlcjtERVNLVE9QLVRUUUNJNTk7MjAyNC0wNC0yNzswNjo1MzoxOSBQTTsyNzg2"/>
+        <attribute name="edited" value="VXNlcjtERVNLVE9QLVRUUUNJNTk7MjAyNC0wNC0yNzswNzoxNTozMiBQTTsxOzI4ODg="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <comment text=""/>
+            <call expression="nilaiS(u,n)"/>
+            <assign variable="temp" expression="u"/>
+            <for variable="i" start="1" end="n" direction="inc" step="1">
+                <assign variable="temp" expression="temp*(u-i)"/>
+            </for>
+            <comment text=""/>
+            <assign variable="n" expression="3"/>
+            <assign variable="x" expression="[0,0.6,0.9]"/>
+            <call expression="nested_loop_comprehension"/>
+            <assign variable="y[0][0]" expression="0"/>
+            <assign variable="y[1][0]" expression="0.010471784"/>
+            <assign variable="y[2][0]" expression="0.015707317"/>
+            <for variable="i" start="1" end="n" direction="inc" step="1">
+                <for variable="j" start="0" end="n-1" direction="inc" step="1">
+                    <assign variable="y[j][i]" expression="y[j + 1][i - 1] - y[j][i - 1]"/>
+                </for>
+            </for>
+            <assign variable="value" expression="0.45"/>
+            <assign variable="sum" expression="y[0][0]"/>
+            <for variable="i" start="1" end="n" direction="inc" step="1">
+                <assign variable="sum" expression="sum + (nilai_u(u, i) * y[0][i]) / mt.factorial(i)"/>
+            </for>
+            <output expression="sum" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
